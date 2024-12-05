@@ -4,6 +4,19 @@
 sudo apt update && sudo apt upgrade -y
 sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
 
+# Instalar OpenSSH Server para acesso remoto via SSH
+sudo apt install openssh-server -y
+
+# Verificar se o serviço SSH está em execução e habilitá-lo
+sudo systemctl enable --now ssh
+sudo systemctl status ssh
+
+# Habilitar login do root via SSH
+echo "PermitRootLogin yes" | sudo tee -a /etc/ssh/sshd_config > /dev/null
+
+# Reiniciar o serviço SSH para aplicar as mudanças
+sudo systemctl restart ssh
+
 # Adicionar repositório do Docker
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
