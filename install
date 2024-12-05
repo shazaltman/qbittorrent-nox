@@ -33,8 +33,7 @@ mkdir -p ~/qbittorrent
 cd ~/qbittorrent
 
 # Criar arquivo docker-compose.yml com a configuração do qbittorrent
-cat <<
-EOF > docker-compose.yml
+cat <<EOF > docker-compose.yml
 version: '3'
 services:
   qbittorrent-nox:
