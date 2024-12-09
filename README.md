@@ -9,6 +9,8 @@ git clone https://github.com/shazaltman/qbittorrent-nox.git
 
 cd qbittorrent-nox
 
+ls
+
 chmod +x install
 
 ./install
